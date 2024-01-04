@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Airbnb clone</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #banner {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 80px;
+        padding-right: 80px;
+        box-sizing: border-box;
+        background-color: #f7f7f7;
+      }
+
+      #left {
+        padding-top: 22px;
+        padding-bottom: 20px;
+        color: #222222;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      #right {
+        width: 18%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: #222222;
+      }
+
+      #banner_img {
+        width: 53px;
+        height: 30px;
+        border-radius: 7px;
+      }
+
+      #navbar {
+        width: 100%;
+        padding-left: 80px;
+        padding-right: 80px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+      #logo {
+      }
+
+      #middle-section {
+        width: 25%;
+        border: 1px solid #dddddd;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 40px;
+      }
+
+      #right-section {
+        width: 15%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      #search {
+        font-size: 15px;
+        color: white;
+        background-color: #ff385c;
+        padding: 5px;
+        border-radius: 50%;
+      }
+      #week {
+        border-left: 1px solid #dddddd;
+        border-right: 1px solid #dddddd;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      #acc {
+        border: 1px solid #dddddd;
+        border-radius: 15px;
+        padding: 10px;
+      }
+
+      #category {
+        display: flex;
+        padding-left: 80px;
+        padding-right: 80px;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+
+      #category img {
+        height: 24px;
+        width: 24px;
+      }
+
+      #category > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #cards {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: auto;
+        padding-left: 80px;
+        padding-right: 80px;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      #cards > div {
+      }
+
+      #cards img {
+        width: 100%;
+      }
+
+      #star {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      img + #star ~ p {
+        margin-top: -10px;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+      .toggle-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;  
+        border: 1px solid #DDDDDD ;
+        border-radius: 10px;
+        width: 40%;
+        height: 60px;
+        margin: auto;
+
+        
+      
+        
+      }
+      .total-price{
+      color: #222222;
+      font-size: 15px;
+      font-weight: 600;
+       line-height: 19px;
+        margin: 20px;
+      }
+
+    
+      .toogle-icon{
+    
+        font-size: 30px;
+        margin-left: 70px;
+      }
+
+
+
+      .pos{
+        position: relative;
+        color: #222222;
+
+      }
+      
+      .heart{
+        position: absolute;
+        top: 15px;
+        right: 10px;
+        color:rgba(0, 0, 0, 0.5);
+      }
+
+
+      footer{
+        /* position: fixed; */
+        position: fixed;
+        left: 0;
+         bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border: 1px solid #DDDDDD ;
+        background-color:  rgb(255,255,255) ;
+        border-radius: 10px;
+        width: 100%;
+        height: 60px;
+        
+      }
+
+
+      .right-footer{
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 200px;
+      }
+
+      .right-footer ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      footer  li{
+        list-style: none;
+      text-decoration: none;
+       justify-content: space-around;
+       margin: 10px;
+       
+      }
+
+
+      .left-footer{
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        margin: 30px;
+        
+      }
+      .left-footer h3{
+        margin: 10px;
+      }
+    
+      
+
+    </style>
+  </head>
+  <body>
+    <div id="banner">
+      <div id="left">Rooms and 50+ features</div>
+      <div id="right">
+        <img
+          id="banner_img"
+          src="https://a0.muscache.com/im/pictures/420c6e43-7896-4617-9ff4-ad05eb1f03f8.jpg?im_q=highq&im_w=240"
+          alt=""
+        />
+        <p>Play the Rooms film</p>
+        <p>Learn More</p>
+      </div>
+    </div>
+
+    <!-- Second section -->
+    <div id="navbar">
+      <div id="logo">
+        <img
+          height="64px"
+          width="118px"
+          src="https://1000logos.net/wp-content/uploads/2023/01/Airbnb-logo-768x432.png"
+          alt=""
+        />
+      </div>
+      <div id="middle-section">
+        <p>Anywhere</p>
+        <p id="week">Any week</p>
+        <p>Add guests</p>
+        <i id="search" class="fas fa-search search-icon"></i>
+      </div>
+      <div id="right-section">
+        <p>Airbnb your home</p>
+        <i class="fas fa-globe"></i>
+        <div id="acc">
+          <i class="fas fa-bars"></i>
+          <i class="far fa-user"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Categories section -->
+    <div id="category">
+      <div >
+        
+        <img
+          src="https://a0.muscache.com/pictures/7630c83f-96a8-4232-9a10-0398661e2e6f.jpg"
+          alt=""
+        />
+        <p>Rooms</p>
+      </div>
+      <div>
+        <img
+          src="https://a0.muscache.com/pictures/3fb523a0-b622-4368-8142-b5e03df7549b.jpg"
+          alt=""
+        />
+        <p>Amazing pools</p>
+      </div>
+      <div>
+        <img
+          src=https://a0.muscache.com/pictures/aaa02c2d-9f0d-4c41-878a-68c12ec6c6bd.jpg
+          alt=""
+        />
+        <p>Farms</p>
+      </div>
+      <div>
+        <img
+          src="https://a0.muscache.com/pictures/7630c83f-96a8-4232-9a10-0398661e2e6f.jpg"
+          alt=""
+        />
+        <p>Beachfront</p>
+      </div>
+      <div>
+        <img
+          src="https://a0.muscache.com/pictures/bcd1adc0-5cee-4d7a-85ec-f6730b0f8d0c.jpg"
+          alt=""
+        />
+        <p>Amazing views</p>
+      </div>
+      <div>
+        <img
+          src="https://a0.muscache.com/pictures/3b1eb541-46d9-4bef-abc4-c37d77e3c21b.jpg"
+          alt=""
+        />
+        <p>Cabins</p>
+      </div>
+      <div>
+        <img
+          src="https://a0.muscache.com/pictures/732edad8-3ae0-49a8-a451-29a8010dcc0c.jpg"
+          alt=""
+        />
+        <p>Treehouse</p>
+      </div>
+      <div>
+        <img
+          src="https://a0.muscache.com/pictures/4d4a4eba-c7e4-43eb-9ce2-95e1d200d10e.jpg"
+          alt=""
+        />
+        <p>OMG!</p>
+      </div>
+      <div>
+        <img
+          src="https://a0.muscache.com/pictures/c5a4f6fc-c92c-4ae8-87dd-57f1ff1b89a6.jpg"
+          alt=""
+        />
+        <p>Design</p>
+      </div>
+      <div>
+        <img
+          src="https://a0.muscache.com/pictures/50861fca-582c-4bcc-89d3-857fb7ca6528.jpg"
+          alt=""
+        />
+        <p>Tropical</p>
+      </div>
+      <div>
+        <img
+          src="https://a0.muscache.com/pictures/ee9e2a40-ffac-4db9-9080-b351efc3cfc4.jpg"
+          alt=""
+        />
+        <p>LakeFort</p>
+      </div>
+      <div>
+        <img
+          src="https://a0.muscache.com/pictures/677a041d-7264-4c45-bb72-52bff21eb6e8.jpg"
+          alt=""
+        />
+        <p>National parks</p>
+      </div>
+      <div>
+        <img
+          src="https://a0.muscache.com/pictures/c0a24c04-ce1f-490c-833f-987613930eca.jpg"
+          alt=""
+        />
+        <p>Luxee</p>
+      </div>
+      <div>
+        <img
+          src="https://a0.muscache.com/pictures/a4634ca6-1407-4864-ab97-6e141967d782.jpg"
+          alt=""
+        />
+        <p>Camping</p>
+      </div>
+      <div>
+        <img
+          src="https://a0.muscache.com/pictures/3726d94b-534a-42b8-bca0-a0304d912260.jpg"
+          alt=""
+        />
+        <p>Trending</p>
+      </div>
+      <div>
+        <i id="greater" class="fas fa-chevron-circle-right"></i>
+      </div>
+      <div></div>
+    </div>
+
+   <!-- Display total-price  -->
+      <div class="toggle-container"> 
+
+        <h3 class="total-price">Display total price</h3>
+        <p class="toogle-text">includes alll fees,before taxes </p>
+        <div class="toogle-icon">
+          <i  class="fa fa-toggle-on" aria-hidden="true"></i>
+        </div>
+        
+      </div>
+     
+
+   
+
+  <!-- card section  -->
+
+    <div id="cards">
+
+      <div class="pos">
+        <img
+          src="https://a0.muscache.com/im/pictures/miso/Hosting-2694793/original/a6d39bc6-9564-4503-8b84-c796ecda03af.jpeg?im_w=720"
+          alt=""
+          
+      />
+       <div class="heart">
+         <i class="fa fa-heart" aria-hidden="true"></i>
+        </div>
+
+        <div id="star">
+          <p>Surry Hills, Australia</p>
+         
+          <p> <i class="fa fa-star" aria-hidden="true"></i>4.92</p>
+        </div>
+        <p>Stay with Bron. Business owner</p>
+        <p>26 Jul - 1 Aug</p>
+        <p>$8761 night</p>
+      </div>
+
+      <div class="pos">
+        <img
+          src="https://a0.muscache.com/im/pictures/miso/Hosting-51809333/original/0da70267-d9da-4efb-9123-2714b651c9fd.jpeg?im_w=720"
+          alt=""
+        />
+        <div class="heart">
+          <i class="fa fa-heart" aria-hidden="true"></i>
+         </div>
+ 
+        <div id="star">
+          <p>Surry Hills, Australia</p>
+          <p><i class="fa fa-star" aria-hidden="true"></i>4.92</p>
+        </div>
+        <p>Stay with Bron. Business owner</p>
+        <p>26 Jul - 1 Aug</p>
+        <p>$8761 night</p>
+      </div>
+
+      <div class="pos">
+        <img
+          src="https://a0.muscache.com/im/pictures/b8f7b947-48c7-4659-914c-b2abe683ef3c.jpg?im_w=720"
+          alt=""
+        />
+        <div class="heart">
+          <i class="fa fa-heart" aria-hidden="true"></i>
+         </div>
+        <div id="star">
+          <p>Mills, Italy</p>
+          <p><i class="fa fa-star" aria-hidden="true"></i>4.92</p>
+        </div>
+        <p>Stay with Bron. Business owner</p>
+        <p>26 Jul - 1 Aug</p>
+        <p>$8761 night</p>
+      </div>
+
+      <div class="pos">
+        <img
+          src="https://a0.muscache.com/im/pictures/miso/Hosting-23206143/original/e7da1f36-922f-4631-a287-91ceda05970f.jpeg?im_w=720"
+          alt=""
+        />
+        <div class="heart">
+          <i class="fa fa-heart" aria-hidden="true"></i>
+         </div>
+        <div id="star">
+          <p>Linfield, Uk</p>
+          <p><i class="fa fa-star" aria-hidden="true"></i>4.92</p>
+        </div>
+        <p>Stay with Bron. Business owner</p>
+        <p>26 Jul - 1 Aug</p>
+        <p>$8761 night</p>
+      </div>
+      
+      <div  class="pos">
+        <img
+          src="https://a0.muscache.com/im/pictures/miso/Hosting-42654284/original/c87c0f17-3159-4619-b408-2a368618d7a9.jpeg?im_w=720"
+          alt=""
+        />
+        <div class="heart">
+          <i class="fa fa-heart" aria-hidden="true"></i>
+         </div>
+        <div id="star">
+          <p>London, Uk</p>
+          <p><i class="fa fa-star" aria-hidden="true"></i>4.92</p>
+        </div>
+        <p>Stay with Bron. Business owner</p>
+        <p>26 Jul - 1 Aug</p>
+        <p>$8761 night</p>
+      </div>
+      <div  class="pos">
+        <img
+          src="https://a0.muscache.com/im/pictures/miso/Hosting-29919648/original/38def551-c7d8-4731-8d86-ff57f7f10bc2.jpeg?im_w=720"
+          alt=""
+        />
+        <div class="heart">
+          <i class="fa fa-heart" aria-hidden="true"></i>
+         </div>
+        <div id="star">
+          <p>, Potrgul</p>
+          <p><i class="fa fa-star" aria-hidden="true"></i>4.92</p>
+        </div>
+        <p>Stay with Bron. Business owner</p>
+        <p>26 Jul - 1 Aug</p>
+        <p>$8761 night</p>
+      </div>
+      <div  class="pos">
+        <img
+          src="https://a0.muscache.com/im/pictures/airflow/Hosting-22180637/original/6b04a811-3314-452f-9561-2cc5f41d0973.jpg?im_w=720"
+          alt=""
+        />
+        <div class="heart">
+          <i class="fa fa-heart" aria-hidden="true"></i>
+         </div>
+        <div id="star">
+          <p>Surry Hills, Australia</p>
+          <p><i class="fa fa-star" aria-hidden="true"></i>4.92</p>
+        </div>
+        <p>Stay with Bron. Business owner</p>
+        <p>26 Jul - 1 Aug</p>
+        <p>$8761 night</p>
+      </div>
+      <div  class="pos">
+        <img
+          src="https://a0.muscache.com/im/pictures/miso/Hosting-668877859013653763/original/3907f6c6-5cf2-42e8-a9e0-12c2b88ca82f.jpeg?im_w=720"
+          alt=""
+        />
+        <div class="heart">
+          <i class="fa fa-heart" aria-hidden="true"></i>
+         </div>
+        <div id="star">
+          <p>Surry Hills, Australia</p>
+          <p><i class="fa fa-star" aria-hidden="true"></i>4.92</p>
+        </div>
+        <p>Stay with Bron. Business owner</p>
+        <p>26 Jul - 1 Aug</p>
+        <p>$8761 night</p>
+      </div>
+
+      <div  class="pos">
+        <img
+          src="https://a0.muscache.com/im/pictures/miso/Hosting-754944155491608444/original/29df9205-969b-4b16-875a-dde8c681133c.jpeg?im_w=720"
+          alt=""
+        />
+        <div class="heart">
+          <i class="fa fa-heart" aria-hidden="true"></i>
+         </div>
+        <div id="star">
+          <p>Surry Hills, Australia</p>
+          <p><i class="fa fa-star" aria-hidden="true"></i>4.92</p>
+        </div>
+        <p>Stay with Bron. Business owner</p>
+        <p>26 Jul - 1 Aug</p>
+        <p>$8761 night</p>
+      </div>
+
+      <div class="pos">
+        <img
+          src="https://a0.muscache.com/im/pictures/miso/Hosting-679663072652903873/original/aee051fa-0224-4027-a832-ce745670e318.jpeg?im_w=720"
+          alt=""
+        />
+        <div class="heart">
+          <i class="fa fa-heart" aria-hidden="true"></i>
+         </div>
+        <div id="star">
+          <p>Surry Hills, Australia</p>
+          <p><i class="fa fa-star" aria-hidden="true"></i>4.92</p>
+        </div>
+        <p>Stay with Bron. Business owner</p>
+        <p>26 Jul - 1 Aug</p>
+        <p>$8761 night</p>
+      </div>
+    </div>
+
+
+
+    <!-- footer  -->
+
+    <footer>
+
+      <div class="right-footer">
+
+        <p>© 2023 Airbnb, Inc.</p>
+
+        <ul class="footer-list">
+          <li>Privacy</li>
+          <li>Terms</li>
+          <li>Sitemap</li>
+          <li>Company details</li>
+        </ui>
+      </div>
+
+      <div class="left-footer">
+
+
+        <i class="fa fa-language" aria-hidden="true"></i>
+        <h3>English </h3>
+
+        <i class="fa fa-inr" aria-hidden="true"></i>
+        <h3>INR</h3>
+
+        <h3>Support & resources</h3>
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+
+      </div>
+     
+
+
+
+    </footer>
+  
+  </body>
+</html>
